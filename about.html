@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeavenHut- About Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+      <div id="stars"></div>
+      <div class="navbar">
+        <img src="img/logo.png" alt="HeavenHut" />
+        <div class="center-nav">
+          <a href="/index.html">Home</a>
+          <a href="/about.html">Contact</a>
+          <a href="">Menu</a>
+          <a href="">Office</a>
+        </div>
+        <div class="social">
+          <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+          <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href=""><i class="fa-solid fa-house"></i></a>
+        </div>
+      </div>
+    <div class="container">
+        <div class="left-section">
+          <img src="img/castle-1374916_1280.jpg" alt="Section Image" />
+        </div>
+        <div class="right-section">
+          <h2>Contact Us</h2>
+          <form id="contactForm" action="https://formspree.io/f/mqalzejg" method="post">
+            <input name="name" type="text" placeholder="Your Name" required />
+            <input name="email" type="email" placeholder="Your Email" required />
+            <textarea name="Message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+          <p id="form-status"></p>
+        </div>
+      </div>
+
+      <script>
+
+        document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Simulate successful form submission
+          document.getElementById("form-status").textContent =
+            "Thank you! We’ll get back to you soon.";
+
+          // Clear form fields
+          this.reset();
+        });
+      </script>
+</body>
+</html>

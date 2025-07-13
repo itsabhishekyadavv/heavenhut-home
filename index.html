@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HeavenHut - Buy & Rent Your Dream Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <div id="stars"></div>
+      <div class="navbar">
+        <img src="img/logo.png" alt="HeavenHut" />
+        <div class="center-nav">
+          <a href="">Home</a>
+          <a href="/about.html">Contact</a>
+          <a href="">Menu</a>
+          <a href="">Office</a>
+        </div>
+        <div class="social">
+          <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+          <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href=""><i class="fa-solid fa-house"></i></a>
+        </div>
+      </div>
+
+      <div class="about">
+        <div class="text">
+          <h1>DREAM HOME <br />BUY, SELL & RENT</h1>
+          <p>
+            Welcome to HeavenHut — your one-stop destination to buy, sell, or
+            rent your dream home with ease. Find perfect properties tailored to
+            your lifestyle, location, and budget today!
+          </p>
+          <a href="" class="btn">Buy & Rent</a>
+          <a href="/about.html" target="_blank" class="btn">Explore More</a>
+        </div>
+
+        <div class="home-toggle">
+          <img src="img/villa-3454616_1280.jpg" alt="" class="active" />
+        </div>
+      </div>
+      <div class="home">
+        <img src="img/villa-3454616_1280.jpg" alt="" />
+        <img src="img/villa-5430492_1280.jpg" alt="" />
+        <img src="img/villa-565754_1280.jpg" alt="" />
+        <img src="img/house-1620736_1280.jpg" alt="" />
+        <img src="img/house-8712357_1280.png" alt="" />
+      </div>
+    </header>
+
+    <!-- <script src="script.js"></script> -->
+    <script>
+      // Toggle Switch
+
+      const homeImages = document.querySelectorAll(".home img");
+      const toggleImages = document.querySelectorAll(".home-toggle img");
+      let currentIndex = 0;
+
+      toggleImages[currentIndex].classList.add("active");
+
+      homeImages.forEach((img, index) => {
+        img.addEventListener("click", () => {
+          toggleImages.forEach((toggleImg) =>
+            toggleImg.classList.remove("active")
+          );
+          toggleImages[currentIndex].classList.add("active");
+          toggleImages[currentIndex].src = homeImages[index].src;
+          currentIndex = (currentIndex + 1) % toggleImages.length;
+        });
+      });
+      // Generate Stars
+
+      function createStars() {
+        const starsContainer = document.getElementById("stars");
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+
+        for (let i = 0; i < 100; i++) {
+          const star = document.createElement("div");
+          star.className = "star";
+          star.style.left = `${Math.random() * windowWidth}px`;
+          star.style.top = `${Math.random() * windowHeight}px`;
+          starsContainer.appendChild(star);
+        }
+      }
+
+      // Call the create star function when the page is load
+
+      window.addEventListener("load", createStars);
+    </script>
+  </body>
+</html>
